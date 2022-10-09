@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #modal-content{
+            display: none;
+            background-color:white;
+            height:400px;
+            width: 30%;
+            margin-left: 100px;
+            margin-top:20px;
+           
+            box-shadow: 5px 5px 25px 3px rgb(232, 230, 230);
+          
+        }
+        #modal-content input{
+            border: none;
+            padding-left:20px ;
+            padding-top: 10px;
+            padding-bottom:10px ;
+            padding-right:20px ;
+            margin-left: 80px;
+            margin-top: 20px;
+            border-bottom:1px solid  rgb(247, 85, 85) ;
+        }
+        #modal-content textarea{
+            margin-left: 80px;
+            border: none;
+            border-bottom:1px solid rgb(247, 85, 85) ;
+        }
+      
+    </style>
+</head>
+<body>
+    
+    <button id="mybtn">Modal</button>
+
+    <div id="modal-content">
+        <span id="close" style="float: right;cursor: pointer;">&rightarrow;</span>
+        <h4 style="margin-left:100px; color: rgba(0, 0, 0, 0.543);font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Quick Enquiry</h4>
+        <input type="text" placeholder="Name*">
+        <br><br>
+        <input type="text" placeholder="10 Digit Mobile No*">
+        <br><br>
+        <input type="email" placeholder="Email*">
+        <br><br>
+        <textarea rows="3" cols="25" ></textarea>
+        <br><br>
+        <button style="margin-left:90px;padding-left:30px ;
+        padding-top: 8px;
+        padding-bottom:8px ;
+        padding-right:20px ;background-color: rgb(71, 71, 244);color: white;font-size:12px ;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;border: none;">I'm Intrested Tell me More</button>
+    </div>
+
+    <script>
+        const modal=document.getElementById("modal-content")
+        const btn=document.getElementById("mybtn")
+        const span=document.getElementById("close")
+        
+
+        btn.onclick=function(){
+            modal.style.display="block"
+        }
+        span.onclick=function(){
+            modal.style.display="none"
+        }
+      
+       document.onclick=function(e){
+            if(e.target == modal){
+                modal.style.display="none"
+            }
+        }
+            
+
+
+
+    </script>
+
+</body>
+</html>
