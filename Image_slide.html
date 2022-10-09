@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image slide</title>
+</head>
+<body>
+    
+    <div class="image-container">
+        <div class="showslide">
+            <img src="https://images.pexels.com/photos/8197544/pexels-photo-8197544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="300px" height="300px">
+        </div>
+
+        <div class="showslide">
+            <img src="https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="300px" height="300px">
+        </div>
+
+        <div class="showslide">
+            <img src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="300px" height="300px">
+        </div>
+
+        <div class="showslide">
+            <img src="https://images.pexels.com/photos/1110355/pexels-photo-1110355.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="300px" height="300px">
+        </div>
+    </div>
+
+    <a class="" onclick="nextSlide(1)"><</a>
+    <a class="" onclick="nextSlide(-1)">></a> 
+
+    <script>
+
+        var slide_index=1;
+        displaySlides(slide_index);
+        function nextSlide(n){
+            displaySlides(slide_index +=n);
+        }
+        function currentSlide(n){
+            displaySlides(slide_index =n);
+        }
+        function displaySlides(n){
+            var i;
+            var slides=document.getElementsByClassName("showslide")
+            if(n>slides.length){
+                slide_index=1
+            }
+            if(n<1){
+                slide_index=slides.length
+            }
+            for(i=0; i<slides.length; i++){
+                slides[i].style.display="none"
+            }
+            slides[slide_index -1].style.display="block"
+        }
+
+    </script>
+</body>
+</html>
