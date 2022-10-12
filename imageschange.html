@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image slider</title>
+</head>
+
+<body>
+
+    <img id="img">
+
+    <script>
+        var i=0
+        var images=["https://tse2.mm.bing.net/th?id=OIP.avxhtQqr5FoubGjq4sIXugHaEo&pid=Api&P=0","https://tse2.mm.bing.net/th?id=OIP.6VrI1fe7BXBT_dNPg3BBXQHaEo&pid=Api&P=0","https://tse1.mm.bing.net/th?id=OIP.bsiOKGlFjV2aa8z-Iz1PpQHaEK&pid=Api&P=0"]
+        function changeImg(){
+            document.getElementById("img").src=images[i]
+            if(i<images.length-1){
+                i++
+            }
+            else{
+                i=0
+            }
+            setTimeout("changeImg()",2000)
+        }
+        window.onload=changeImg
+
+
+
+
+        
+    </script>
+</body>
+
+</html>
