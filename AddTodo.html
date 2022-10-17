@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Todo-list</title>
+</head>
+
+<body>
+
+    <input type="text" id="name">
+    <input type="submit" value="Add" onclick="AddTodo()">
+    <input type="submit" value="Remove All" onclick="remove()">
+    <br>
+    <span id="error" style="color: red;"></span>
+    <ul id="ulist" style="list-style: none;"></ul>
+
+    <script>
+        function AddTodo() {
+            const name = document.getElementById("name").value
+            const btn = document.getElementById("btn")
+            const ulist = document.getElementById('ulist')
+        
+
+            if(name ==""){
+                document.getElementById("error").innerHTML="Please eneter something.."
+            }
+            else{
+                const li=document.createElement("li")//<li></li>
+                li.textContent=name
+                const a=document.createElement("button")
+                a.textContent="Remove"
+                ulist.appendChild(li)
+                li.appendChild(a)
+               
+            }
+
+            document.getElementById("name").value=""
+        }
+
+        function remove(){
+            document.getElementById("ulist").innerHTML=""
+        }
+        
+        ulist.addEventListener("click",(e)=>{
+            const h=e.target.parentNode
+            ulist.removeChild(h)
+        })
+
+    </script>
+
+
+
+</body>
+
+</html>
