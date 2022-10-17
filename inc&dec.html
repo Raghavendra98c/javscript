@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Events</title>
+</head>
+<body>
+    <h3>count : <span id="count">0</span></h3>
+    <button onclick="inc()">Increment</button>
+    <button onclick="dec()">Decrement</button>
+    <button onclick="helo()">Reset</button>
+    <script>
+
+function inc(){
+    const x=document.getElementById("count").innerHTML  // =0
+    const value =parseInt(x) + 5
+    document.getElementById("count").innerHTML =value
+}
+function dec(){
+    const x=document.getElementById("count").innerHTML  // =0
+    const value =parseInt(x) - 5
+    document.getElementById("count").innerHTML =value
+}
+function helo(){
+    const x=document.getElementById("count").innerHTML ="0"
+   
+}
+
+
+
+    </script>
+    
+</body>
+</html>
