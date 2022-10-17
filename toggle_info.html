@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .head{
+            background-color: aquamarine;
+            color: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .head.active::after{
+            content: "-";
+            position: absolute;
+            left: 98%;
+        }
+        .para{
+            width: 100%;
+            display: none;      
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button class="head">Listbox1</button>
+    <div class="para">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, enim, voluptate provident autem aspernatur at ut architecto ad alias perspiciatis expedita sunt vel quia officiis consequatur dolores iste molestiae distinctio.</p>
+    </div>
+    <button class="head">Listbox1</button>
+    <div class="para">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, enim, voluptate provident autem aspernatur at ut architecto ad alias perspiciatis expedita sunt vel quia officiis consequatur dolores iste molestiae distinctio.</p>
+    </div>
+    <button class="head">Listbox1</button>
+    <div class="para">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, enim, voluptate provident autem aspernatur at ut architecto ad alias perspiciatis expedita sunt vel quia officiis consequatur dolores iste molestiae distinctio.</p>
+    </div>
+    <button class="head">Listbox1</button>
+    <div class="para">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, enim, voluptate provident autem aspernatur at ut architecto ad alias perspiciatis expedita sunt vel quia officiis consequatur dolores iste molestiae distinctio.</p>
+    </div>
+</div>
+    <script>
+        const acc=document.getElementsByClassName("head")
+        var i;
+        for(i=0;i<acc.length;i++){
+            acc[i].addEventListener("click",function(){
+                this.classList.toggle("active")
+                var x=this.nextElementSibling
+                if(x.style.display === "block"){
+                     x.style.display="none"
+                }
+                else{
+                    x.style.display="block"
+                }
+            })
+        }
+
+        
+    </script>
+</body>
+</html>
