@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Crud Operations</title>
+</head>
+
+<body>
+
+    <center>
+        <h1>Crud Operations</h1>
+    </center>
+    <hr>
+    <div class="employee-form">
+        <form  onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+            <div>
+                <label>Full Name:</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+                <input type="text" name="fullName" id="fullName">
+            </div>
+            <div>
+                <label>Email Id</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div>
+                <label>Salary</label>
+                <input type="text" name="salary" id="salary">
+            </div>
+            <div>
+                <label>City</label>
+                <input type="text" name="city" id="city">
+            </div>
+            <div class="form-action-buttons">
+                <input type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+    <br />
+    <div class="employees-table">
+        <table class="list" id="employeelist">
+            <thead>
+                <tr>
+                    <th>Full Name:</th>
+                    <th>Email Id</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+var selectedRow = null
+
+function onFormSubmit() {
+    const x=document.getElementById("fullName").value
+    if(x==""){
+        alert("error")
+    }
+    else{
+        var formData = readFormData();
+        if (selectedRow == null)
+            insertNewRecord(formData);
+        else
+            updateRecord(formData);
+        resetForm();
+    }
+}
+function readFormData() {
+    var formData = {};
+    formData["fullName"] = document.getElementById("fullName").value;
+    formData["email"] = document.getElementById("email").value;
+    formData["salary"] = document.getElementById("salary").value;
+    formData["city"] = document.getElementById("city").value;
+    return formData;
+}
+
+function insertNewRecord(data){
+    const table=document.getElementById("employeelist").getElementsByTagName("tbody")[0];
+    var newRow=table.insertRow(table.length)
+    cell1=newRow.insertCell(0)
+    cell1.innerHTML=data.fullName
+    cell2=newRow.insertCell(1)
+    cell2.innerHTML=data.email
+    cell3=newRow.insertCell(2)
+    cell3.innerHTML=data.salary
+    cell4=newRow.insertCell(3)
+    cell4.innerHTML=data.city
+    cell5=newRow.insertCell(4)
+    cell5.innerHTML=`<a onClick="onEdit(this)">Edit</a>
+                     <a onClick="onDelete(this)">Delete</a>`
+}
+function resetForm() {
+    document.getElementById("fullName").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("salary").value = "";
+    document.getElementById("city").value = "";
+    selectedRow = null;
+}
+function onEdit(td) {
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById("fullName").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("email").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("salary").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("city").value = selectedRow.cells[3].innerHTML;
+}
+
+function updateRecord(formData) {
+    selectedRow.cells[0].innerHTML = formData.fullName;
+    selectedRow.cells[1].innerHTML = formData.email;
+    selectedRow.cells[2].innerHTML = formData.salary;
+    selectedRow.cells[3].innerHTML = formData.city;
+}
+function onDelete(td) {
+   
+        row = td.parentElement.parentElement;
+        document.getElementById("employeelist").deleteRow(row.rowIndex);
+      
+    }
+
+    </script>
+
+</body>
+
+</html>
