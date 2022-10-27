@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Cards Filter</h1>
+    <div class="container">
+        <div class="input-filter">
+            <input type="text" name="" id="filter" class="filter" placeholder="Enter Title" onkeyup="searchProduct()">
+        </div>
+        <br><br>
+        <div id="card-lists">
+        <ul class="card">
+            
+            <li class="card-title">html</li>
+            
+        </ul>
+        <ul class="card">
+            
+           
+            <li  class="card-title">css</li>
+            
+        </ul>
+        <ul class="card">
+            
+           
+            <li class="card-title">js</li>
+       
+        </ul>
+        <ul class="card">
+            
+           
+            <li class="card-title">react</li>
+        </ul>
+        <ul class="card">
+            
+            
+            <li class="card-title">python</li>
+        </ul>
+    </div>
+       
+    </div>
+
+<script>
+
+function searchProduct(){
+    const input=document.getElementById("filter").value.toUpperCase()
+    const container=document.getElementById("card-lists")
+    const card=container.getElementsByClassName("card")
+    for(let i=0; i<card.length; i++){
+        let title=card[i].querySelector(".card-title")
+        if(title.innerText.toUpperCase().indexOf(input)>-1){
+            card[i].style.display=""
+        }
+        else{
+            card[i].style.display="none"
+        }
+
+    }
+}
+
+
+</script>
+
+</body>
+
+</html>
