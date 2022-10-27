@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            background-color: rgb(208, 212, 215);
+            box-shadow: 3px 3px 3px 3px rgb(241, 238, 238);
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+        }
+        .row{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 10px;
+        }
+        .input-filter input{
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+        }
+    
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Cards Filter</h1>
+    <div class="container">
+        <div class="input-filter">
+            <input type="text" name="" id="filter" class="filter" placeholder="Enter Title" onkeyup="searchProduct()">
+        </div>
+        <br><br>
+        <div class="card-lists" id="card-lists">
+            <div class="row">
+                <div class="card">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.J8uktCRVET2arbFcH_PivwHaE6&pid=Api&P=0" height="200px" width="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">Business Cards</h5>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.J8uktCRVET2arbFcH_PivwHaE6&pid=Api&P=0" height="200px" width="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">love Cards</h5>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.J8uktCRVET2arbFcH_PivwHaE6&pid=Api&P=0" height="200px" width="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">hotel Cards</h5>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.J8uktCRVET2arbFcH_PivwHaE6&pid=Api&P=0" height="200px" width="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">family Cards</h5>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.J8uktCRVET2arbFcH_PivwHaE6&pid=Api&P=0" height="200px" width="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">icecream Cards</h5>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.J8uktCRVET2arbFcH_PivwHaE6&pid=Api&P=0" height="200px" width="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">cherry Cards</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+function searchProduct(){
+    const input=document.getElementById("filter").value.toUpperCase()
+    console.log(input)
+    const container=document.getElementById("card-lists")
+    console.log(container)
+    const card=container.getElementsByClassName("card")
+    console.log(card)
+    for(let i=0; i<card.length; i++){
+        let title=card[i].querySelector(".card-title")
+        console.log(title)
+        if(title.innerText.toUpperCase().indexOf(input)>-1){
+            card[i].style.display="";
+        }
+        else{
+            card[i].style.display="none";
+        }
+    }
+}
+
+</script>
+
+</body>
+
+</html>
