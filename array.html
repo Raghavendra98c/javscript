@@ -43,6 +43,21 @@
 // console.log(y)
 
 Math.round/Math.floor/Math.max/Math.min
+        
+        
+        
+ // reduce(total,currentvaue,currentindex,array)
+const arr=[1,2,3,4,5,6]
+let z=arr.reduce((total,currentvaue,currentindex,array)=>{
+    total +=currentvaue
+    if(currentindex===array.length-1){
+        return total/array.length
+    }
+    else{
+        return total
+    }
+})
+console.log(z)
 
 
 
