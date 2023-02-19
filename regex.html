@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .success{
+            border: 1px solid green;
+        }
+        .error{
+            border: 1px solid red;
+        }
+        .remove{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<form class="form">
+    <input type="text" id="user">
+    <input type="submit">
+    <div class="text"></div>
+</form>
+    
+<script>
+
+let x=document.querySelector(".form")
+const user=document.querySelector("#user")
+const display=document.querySelector(".text")
+x.addEventListener("keyup",(e)=>{
+    userPattern=/^[a-z0-9]{6,12}$/
+    const data=user.value
+    event.preventDefault()
+    // console.log(user.value)
+    if(userPattern.test(data)){
+        console.log("passed")
+        display.textContent="user name valid"
+        x.setAttribute("class",'success')
+        // x.classList.add("success")
+    }
+    else if(user.value==""){
+        display.textContent=""
+        x.setAttribute("class",'remove')
+    }
+    else{
+        console.log("failed")
+        display.textContent="user name not valid"
+        x.setAttribute("class",'error')
+        // x.classList.add("error")
+    }
+})
+
+
+
+
+
+
+</script>
+</body>
+</html>
