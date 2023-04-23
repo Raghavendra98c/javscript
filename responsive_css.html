@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: cursive;
+        }
+        a{
+            text-decoration: none;
+          color: white;
+        }
+        li{
+            list-style: none;
+        }
+        .navbar{
+            background-color: teal;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .logo{
+            font-size: 30px;
+        }
+        .menu{
+            display: flex;
+            gap: 60px;
+        }
+        .dropdown{
+            position: absolute;
+            background-color: aquamarine;
+            padding: 10px;
+            border-radius: 10px;
+            left: 81%;
+            top: 12%;
+            display: none;
+        }
+        .courses:hover .dropdown{
+            display: block;
+        }
+        .hamburger{
+            display: none;
+        }
+        input[type=checkbox]{
+            display: none;
+        }
+        @media (max-width:768px){
+            .menu{
+                display: none;
+               position: absolute;
+               left: 0;
+               right: 0;
+               /* display: inline; */
+               text-align: center;
+               background-color: teal;
+               top: 13%;
+            }
+            .menu li{
+                padding: 20px;
+            }
+            .dropdown{
+                position: absolute;
+                left: 58%;
+            }
+            .hamburger{
+                display: block;
+            }
+            input[type=checkbox]:checked~.menu{
+                display: block;
+            }
+
+        }
+        .container .card{
+            background-color: aquamarine;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        .container{
+            display: flex;
+            gap: 10px;
+        }
+        @media (max-width:768px){
+            .container{
+                display: inline;
+            }
+        }
+        .container1 .card{
+            background-color: rgb(156, 223, 121);
+            padding: 20px;
+            border: 1px solid black;
+        }
+        .container1{
+            display: flex;
+            gap: 10px;
+        }
+        @media (max-width:768px){
+            .container1{
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Besant Technology</div>
+        <ul class="nav-links">
+            <!-- <input type="checkbox"  id="check">
+            <label for="check" class="hamburger">&#9776;</label> -->
+            <input type="checkbox" id="check">
+            <label for="check" class="hamburger">&#9776;</label>
+            <div class="menu">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/">About</a>
+                </li>
+                <li class="courses">
+                    <a href="/">Courses</a>
+                    <ul class="dropdown">
+                        <li>
+                            <a href="/">Front End</a>
+                        </li>
+                        <li>
+                            <a href="/">Backend</a>
+                        </li>
+                        <li>
+                            <a href="/">Database</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/">Contact</a>
+                </li>
+            </div>
+
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+    </div>
+    <br>
+    <div class="container1">
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo accusantium laudantium incidunt repellat tempora deserunt expedita nulla blanditiis exercitationem, debitis perferendis, fugit veritatis dolor beatae dicta fuga ipsam, nesciunt ea?</p>
+        </div>
+    </div>
+</body>
+</html>
