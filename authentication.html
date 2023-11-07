@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    Autyhentication -
+    register
+    login
+    logout
+ -->
+
+<fieldset>
+    <legend>SignUp</legend>
+    <form onsubmit="signup(event)">
+        <input type="text" placeholder="Name" id="name"> <br><br>
+        <input type="email" placeholder="Email" id="email"> <br><br>
+        <input type="number" placeholder="Mobile" id="mobile"> <br><br>
+        <input type="password" placeholder="password" id="pswd"> <br><br>
+        <input type="password" placeholder="Confirm pasword" id="cpswd"> <br><br>
+        <button type="submit">SignUp</button>
+        <div>
+            I have already account <a href="Gtyde.html">Login Here</a>
+        </div>
+    </form>
+</fieldset>
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+    import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"
+    const firebaseConfig = {
+      apiKey: "AIzaSyCPia6nX8Kp9rhTIOqPyYUxlf0BsEW_uOA",
+      authDomain: "auth-db91c.firebaseapp.com",
+      projectId: "auth-db91c",
+      storageBucket: "auth-db91c.appspot.com",
+      messagingSenderId: "931502178059",
+      appId: "1:931502178059:web:dc631b29af8480d7572c0e",
+      measurementId: "G-73SD8EE167"
+    };
+  
+  
+    const app = initializeApp(firebaseConfig);
+    // const analytics = getAnalytics(app);
+    const auth=getAuth() // autyhentication - email / password
+
+    var name=document.getElementById("name")
+    var email=document.getElementById("email")
+    var mobile=document.getElementById("mobile")
+    var pswd=document.getElementById("pswd")
+    var cpswd=document.getElementById("cpswd")
+
+    window.signup=function(e){
+        e.preventDefault()
+        console.log("clicked")
+        if(name.value==""  email.value==""  mobile.value==""   pswd.value==""   cpswd.value==""){
+            alert("All fields are manadatory..!")
+        }
+        if(pswd.value != cpswd.value){
+            alert("Password does not match..!")
+        }
+
+        let obj={
+            email:email.value,
+            password:pswd.value
+        }
+
+        createUserWithEmailAndPassword(auth,obj.email,obj.password)
+        .then(()=>{
+            alert("Registerd Successfully..!")
+            window.location.href="Gtyde.html"
+        })
+        .catch(()=>{
+            alert("getting error")
+        })
+
+
+    }
+
+
+
+
+
+
+
+
+  </script>
+ 
+
+
+    
+</body>
+</html>
+
+
+
+
+
+<!--Login  -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<fieldset>
+  <legend>Login</legend>
+  <form onsubmit="login(event)">
+    <input type="email" placeholder="Email" id="email"> <br><br>
+    <input type="password" placeholder="password" id="pswd"> <br><br>
+    <button type="submit">Login</button>
+<div>
+  I dont have any Account <a href="index.html">Register Here</a>
+</div>
+
+</form>
+</fieldset>
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+  // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+  import {getAuth, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"
+  const firebaseConfig = {
+    apiKey: "AIzaSyCPia6nX8Kp9rhTIOqPyYUxlf0BsEW_uOA",
+    authDomain: "auth-db91c.firebaseapp.com",
+    projectId: "auth-db91c",
+    storageBucket: "auth-db91c.appspot.com",
+    messagingSenderId: "931502178059",
+    appId: "1:931502178059:web:dc631b29af8480d7572c0e",
+    measurementId: "G-73SD8EE167"
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+  // const analytics = getAnalytics(app);
+  const auth=getAuth() // autyhentication - email / password
+
+
+  var email=document.getElementById("email")
+  var pswd=document.getElementById("pswd")
+
+
+  window.login=function(e){
+      e.preventDefault()
+      console.log("clicked")
+      if( email.value=="" || pswd.value==""){
+          alert("All fields are manadatory..!")
+      }
+   
+
+      let obj={
+          email:email.value,
+          password:pswd.value
+      }
+
+     signInWithEmailAndPassword(auth,obj.email,obj.password)
+      .then(()=>{
+          alert("Logged In Successfully..!")
+          window.location.href="Basic.html"
+
+      })
+      .catch(()=>{
+          alert("getting error")
+      })
+
+
+  }
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+<!-- Logout -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welocome to Dashboard..!</h1>
+    <form onsubmit="logout(event)">
+        <button type="submit">Logout</button>
+    </form>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        import {getAuth, signOut} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"
+        const firebaseConfig = {
+          apiKey: "AIzaSyCPia6nX8Kp9rhTIOqPyYUxlf0BsEW_uOA",
+          authDomain: "auth-db91c.firebaseapp.com",
+          projectId: "auth-db91c",
+          storageBucket: "auth-db91c.appspot.com",
+          messagingSenderId: "931502178059",
+          appId: "1:931502178059:web:dc631b29af8480d7572c0e",
+          measurementId: "G-73SD8EE167"
+        };
+      
+      
+        const app = initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app);
+        const auth=getAuth() // autyhentication - email / password
+      
+
+      
+        window.logout=function(e){
+            
+      
+           signOut(auth)
+            .then(()=>{
+                alert("Logged out Successfully..!")
+                window.location.href="index.html"
+      
+            })
+            .catch(()=>{
+                alert("getting error")
+            })
+      
+      
+        }
+      
+      
+      
+      
+      
+      
+      
+      
+      </script>
+      
+
+</body>
+</html>
